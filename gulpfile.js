@@ -1,7 +1,12 @@
 const gulp = require("gulp");
 const sass = require("gulp-sass");
 const connect = require("gulp-connect");
+const imagemin = require("gulp-imagemin");
 var rename = require("gulp-rename");
+
+gulp.task("imagemin", function() {
+  gulp.src(["./src/imgs/*.jpg"]).pipe(gulp.dest("./srv/imgs/"));
+});
 
 gulp.task("sass", function() {
   gulp
@@ -48,6 +53,7 @@ gulp.task("watch", function() {
   gulp.watch("./src/*.html", ["html"]);
   gulp.watch("./src/js/*.js", ["js"]);
   gulp.watch("./src/scss/*.scss", ["sass"]);
+  gulp.watch("./src/imgs/*.jpg", ["imagemin"]);
   gulp.watch("./src/**/*", ["livereload"]);
 });
 
@@ -56,6 +62,7 @@ gulp.task("default", [
   "connect:open",
   "watch",
   "sass",
+  "imagemin",
   "js",
   "html"
 ]);
