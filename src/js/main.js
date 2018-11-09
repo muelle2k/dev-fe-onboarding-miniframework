@@ -1,37 +1,40 @@
-/*
-//PLAIN JS
-let button = document.getElementsByClassName("imageText__button");
+//PLAIN JS SCSS Datei umändern
+const namespace = {
 
-console.log(button)
+  slide(elementToSlideOpen) {
 
-var namespace = {
+    if (elementToSlideOpen.classList.contains("contactUs--origin", "contactUs--hidden")) {
 
-  slide() {
+      elementToSlideOpen.classList.remove("contactUs--origin", "contactUs--hidden");
+      elementToSlideOpen.classList.add("contactUs--visible");
 
-    console.log("slide()");
-    console.log(this);
+    } else if (elementToSlideOpen.classList.contains("contactUs--visible")) {
 
-    let contactUsClasses = document.getElementsByClassName("contactUs");
-    console.log(contactUsClasses[0].classList);
-
-    if (contactUsClasses[0].classList.contains("contactUs--origin", "contactUs--hidden")) {
-
-      contactUsClasses[0].classList.remove("contactUs--origin", "contactUs--hidden");
-      contactUsClasses[0].classList.add("contactUs--visible");
-
-    } else if (contactUsClasses[0].classList.contains("contactUs--visible")) {
-
-      contactUsClasses[0].classList.remove("contactUs--visible");
-      contactUsClasses[0].classList.add("contactUs--hidden", "contactUs--origin");
+      elementToSlideOpen.classList.remove("contactUs--visible");
+      elementToSlideOpen.classList.add("contactUs--hidden", "contactUs--origin");
 
     }
   }
-};
-for (var i = 0; i < button.length; i++) {
-  button[i].addEventListener("click", namespace.slide)
 }
-*/
-//jQuery
+
+let button = document.getElementsByClassName("imageText__button");
+
+for (let i = 0; i < button.length; i++) {
+  button[i].addEventListener("click", (event) => {
+    console.log(event.target);
+
+    namespace.slide(event.target.closest('section').querySelector('.contactUs'))
+  })
+}
+
+
+
+
+
+
+/*
+//jQuery SCSS Datei umändern
+
 $(".imageText__button").click(function () {
   if ($(".contactUs").is(":hidden")) {
     $(".contactUs").slideDown(400);
@@ -39,3 +42,4 @@ $(".imageText__button").click(function () {
     $(".contactUs").slideUp(400);
   }
 })
+*/

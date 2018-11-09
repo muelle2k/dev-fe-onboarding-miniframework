@@ -50,10 +50,11 @@ section {
 
   img {
     width: 50%;
+    max-height: 450px;
   }
 }
 
-/*
+
 //for PLAINJS/ES6
 @keyframes slideDown {
   from {
@@ -127,8 +128,8 @@ section {
     margin-top: 15px;
   }
 }
-*/
 
+/*
 //For jQuery
 .contactUs {
   background: #2f314d;
@@ -160,7 +161,7 @@ section {
     top: -19px;
   }
 }
-
+*/
 .imageText--flex {
   display: flex;
 }
@@ -171,6 +172,7 @@ section {
 
   img {
     width: 22%;
+    max-height: 200px;
     margin: 30px 20px 30px 12%;
   }
 
