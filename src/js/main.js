@@ -1,4 +1,6 @@
-/*let button = document.getElementsByClassName("imageText__button");
+/*
+//PLAIN JS
+let button = document.getElementsByClassName("imageText__button");
 
 console.log(button)
 
@@ -29,7 +31,7 @@ for (var i = 0; i < button.length; i++) {
   button[i].addEventListener("click", namespace.slide)
 }
 */
-
+//jQuery
 $(".imageText__button").click(function () {
   if ($(".contactUs").is(":hidden")) {
     $(".contactUs").slideDown(400);
