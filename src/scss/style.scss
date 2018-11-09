@@ -53,6 +53,8 @@ section {
   }
 }
 
+/*
+//for PLAINJS/ES6
 @keyframes slideDown {
   from {
     padding: 0 0 0 200px;
@@ -76,6 +78,7 @@ section {
     opacity: 0;
   }
 }
+
 
 .contactUs {
   background: #2f314d;
@@ -114,14 +117,47 @@ section {
 
   &--visible {
     visibility: visible;
-    animation: slideDown 1s linear;
+    animation: slideDown 0.5s linear;
     margin-top: 15px;
   }
 
   &--hidden {
     visibility: visible;
-    animation: slideUp 1s linear forwards;
+    animation: slideUp 0.5s linear forwards;
     margin-top: 15px;
+  }
+}
+*/
+
+//For jQuery
+.contactUs {
+  background: #2f314d;
+  position: relative;
+  padding: 10px 0 120px 200px;
+  margin-top: 15px;
+
+  p {
+    color: white;
+    background: transparent;
+    border: none;
+    font-family: sans-serif;
+    font-size: 25px;
+    font-weight: 400;
+    margin-top: 0;
+  }
+
+  &:before {
+    content: "";
+    border: 10px solid transparent;
+    border-bottom: #2f314d;
+
+    border-top: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 10px solid #2f314d;
+    border-left: 10px solid transparent;
+
+    position: absolute;
+    top: -19px;
   }
 }
 
@@ -152,7 +188,7 @@ section {
     }
 
     &__button {
-      &--red {
+      &--color {
         background: #e96262;
       }
     }
