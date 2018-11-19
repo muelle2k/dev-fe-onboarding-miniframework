@@ -3,7 +3,7 @@
 const namespace = {
 
   slide(elementToSlideOpen) {
-
+    console.log(elementToSlideOpen)
     if (elementToSlideOpen.classList.contains('contactUs--origin', 'contactUs--hidden')) {
 
       elementToSlideOpen.classList.remove('contactUs--origin', 'contactUs--hidden');
