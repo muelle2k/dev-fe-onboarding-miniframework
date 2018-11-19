@@ -56,41 +56,39 @@ section {
     width: 50%;
     max-height: 450px;
   }
-}
 
-.secondaryConversion--flex {
-  display: flex;
-  flex-direction: row-reverse;
+  .secondaryConversion--flex & {
+    display: flex;
+    flex-direction: row-reverse;
 
-  img {
-    width: 22%;
-    max-height: 200px;
-    margin: 30px 20px 30px 12%;
-  }
-
-  .imageText {
-    &__content {
-      margin-left: 0;
-
-      h3 {
-        font-size: 16px;
-      }
-
-      p {
-        font-size: 10px;
-      }
+    img {
+      width: 22%;
+      max-height: 200px;
+      margin: 30px 20px 30px 12%;
     }
 
-    &__button {
-      &--color {
-        background: #e96262;
+    .imageText {
+      &__content {
+        margin-left: 0;
+
+        h3 {
+          font-size: 16px;
+        }
+
+        p {
+          font-size: 10px;
+        }
+      }
+
+      &__button {
+        &--color {
+          background: #e96262;
+        }
       }
     }
   }
 }
 
-
-//for plain JS
 @keyframes slideDown {
   0% {
     padding: 0 0 0 200px;
