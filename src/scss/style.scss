@@ -1,4 +1,6 @@
 $primaryColor: rgb(233, 229, 229);
+$secondaryColor:#2f314d;
+$tertiaryColor:#e96262;
 
 body {
   font-family: serif;
@@ -69,7 +71,7 @@ section {
 
     &__button {
       &--color {
-        background: #e96262;
+        background: $tertiaryColor;
       }
     }
   }
@@ -110,7 +112,7 @@ section {
 }
 
 .contactUs {
-  background: #2f314d;
+  background: $secondaryColor;
   position: relative;
   padding: 10px 0 120px 200px;
   margin-top: 10px;
@@ -128,7 +130,7 @@ section {
   &:before {
     content: "";
     border: 10px solid transparent;
-    border-bottom-color: #2f314d;
+    border-bottom-color: $secondaryColor;
     position: absolute;
     top: -19px;
   }
