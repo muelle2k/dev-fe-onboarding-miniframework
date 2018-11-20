@@ -1,27 +1,75 @@
 <!DOCTYPE html>
 <html>
-  <head>
+
+<head>
     <meta charset="UTF-8">
-    <title>title</title>
-  <link rel="stylesheet" href="css/style.ss" type="text/css">
-  </head>
-  <body>
-      <div class="error" style="color:pink">
-          Looks like the styleguide is not being implemented correctly..
-      </div>
-      <div class="content">
-          <h1 class="title">
-              Hmm...
-          </h1>
-          <p class="text">
-              Something is wrong... <br> 
-              Looks like the Javascript code is not being executed. <br>
-              Fix me please.
-          </p>
-      </div>
-      <div class="success" style="color:white; position:absolute; top:580px">
-            Woohoo, CSS is working!
-        </div>
-      <script type="module" src="js/mayn.js"></script>
-  </body>
-</html> 
+    <title>Welcome</title>
+    <link rel="stylesheet" href="ssc/style.css" type="text/css">
+
+</head>
+
+<body>
+    <main>
+        <article>
+            <h1>CALL TO ACTION</h1>
+
+            <section>
+                <h2>CtA - Main conversion</h2>
+                <div class="imageText">
+                    <div class="imageText__content">
+                        <h3>
+                            A wonderful serenity has taken possesio
+                        </h3>
+                        <p>A wondeful serenity has taken possession of my entire soul, like these sweet mo</p>
+                        <button class="imageText__button">Link button</button>
+                    </div>
+                    <img src="imgs/manMountain (2).jpg" alt="man snow mountain ski">
+                </div>
+                <div class="contactUs contactUs--origin">
+                    <p> Contact us </p>
+                </div>
+            </section>
+
+            <section>
+                <h2>CtA - Main conversion - Red Headline</h2>
+                <div class="imageText">
+                    <div class="imageText__content">
+                        <h3 class="imageText__headline--color">
+                            A wonderful serenity has taken possesio
+                        </h3>
+                        <p>A wondeful serenity has taken possession of my entire soul, like these sweet mo</p>
+                        <button class="imageText__button">Link button</button>
+                    </div>
+                    <img src="imgs/manMountain (2).jpg" alt="man snow mountain ski">
+                </div>
+                <div class="contactUs contactUs--origin">
+                    <p> Contact us </p>
+                </div>
+            </section>
+
+            <section>
+                <h2>CtA - Secondary conversion</h2>
+                <div class="imageText imageText--reverse">
+                    <div class="imageText__content">
+                        <h3>
+                            A wonderful serenity has taken possesio
+                        </h3>
+                        <p>A wondeful serenity has taken possession of my entire soul, like these sweet mo</p>
+                        <button class="imageText__button imageText__button--color">Link button</button>
+                    </div>
+                    <img src="imgs/manMountain (2).jpg" alt="man snow mountain ski">
+                </div>
+                <div class="contactUs contactUs--origin">
+                    <p> Contact us </p>
+                </div>
+            </section>
+
+        </article>
+    </main>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
+    <script>window.jQuery || document.write('<script src="js/vendor/jquery-3.3.1.min.js"><\/script>')</script>
+    <script type="module" src="js/main.js"></script>
+</body>
+
+</html>
