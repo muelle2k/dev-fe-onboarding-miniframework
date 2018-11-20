@@ -21,9 +21,18 @@ const namespace = {
 
 let button = document.querySelectorAll('.imageText__button');
 
+// for (let i = 0; i < button.length; i++) {
+//   button[i].addEventListener('click', (event) => {
+//     console.log(event.target);
+
+//     namespace.slide(event.target.closest('section').querySelector('.contactUs'))
+//   })
+
+
 for (let i = 0; i < button.length; i++) {
   button[i].addEventListener('click', (event) => {
     console.log(event.target);
+    console.log(button, "buttonarray")
 
     namespace.slide(event.target.closest('section').querySelector('.contactUs'))
   })
