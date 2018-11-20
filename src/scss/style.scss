@@ -7,25 +7,27 @@ body {
 }
 
 h1 {
+  font-size: 18px;
   text-align: center;
 }
 
 section {
   h2 {
-    font-size: 26px;
-    margin-left: 200px;
-    background: white;
+    margin-left: 10px;
+    font-size: 16px;
     padding-left: 6px;
-    border-left: 4px solid #e71212;
+    border-left: 4px solid $tertiaryColor;
   }
 }
 
 .imageText {
   background: $primaryColor;
   display: flex;
+  flex-direction: column-reverse;
+  padding-bottom: 10px;
 
   &__headline--color {
-    color: #e96262;
+    color: $tertiaryColor;
   }
 
   &__button {
@@ -40,20 +42,19 @@ section {
 
   &__content {
     flex-direction: column;
-    margin: auto auto auto 200px;
+    padding-left: 10px;
 
     h3 {
-      font-size: 26px;
+      font-size: 16px;
     }
 
     p {
-      font-size: 12px;
+      font-size: 14px;
     }
   }
 
   img {
-    width: 50%;
-    max-height: 450px;
+    width: 100%;
   }
 
   &--reverse & {
@@ -65,7 +66,7 @@ section {
       }
 
       p {
-        font-size: 10px;
+        font-size: 14px;
       }
     }
 
@@ -75,38 +76,28 @@ section {
       }
     }
   }
-
-  &--reverse {
-    flex-direction: row-reverse;
-
-    img {
-      width: 22%;
-      max-height: 200px;
-      margin: 30px 20px 30px 12%;
-    }
-  }
 }
 
 @keyframes slideDown {
   0% {
-    padding: 0 0 0 200px;
+    padding: 10px 0 0 10px;
     opacity: 0;
   }
 
   100% {
-    padding: 10px 0 120px 200px;
+    padding: 10px 0 80px 10px;
     opacity: 1;
   }
 }
 
 @keyframes slideUp {
   0% {
-    padding: 10px 0 120px 200px;
+    padding: 10px 0 80px 10px;
     opacity: 1;
   }
 
   100% {
-    padding: 0 0 0 200px;
+    padding: 10px 0 0 10px;
     opacity: 0;
   }
 }
@@ -114,15 +105,15 @@ section {
 .contactUs {
   background: $secondaryColor;
   position: relative;
-  padding: 10px 0 120px 200px;
-  margin-top: 10px;
+  padding: 10px 0 80px 10px;
+  margin-top: 5px;
 
   p {
     color: white;
     background: transparent;
     border: none;
     font-family: sans-serif;
-    font-size: 25px;
+    font-size: 18px;
     font-weight: 400;
     margin-top: 0;
   }
@@ -151,5 +142,135 @@ section {
     visibility: visible;
     animation: slideUp 0.5s linear forwards;
     margin-top: 15px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+
+  section {
+    h2 {
+      font-size: 22px;
+    }
+  }
+
+  .imageText {
+    &__content {
+
+      h3 {
+        font-size: 22px;
+      }
+
+      p {
+        font-size: 18px;
+      }
+    }
+
+    img {
+      width: 100%;
+    }
+
+    &--reverse & {
+      &__content {
+        margin-left: 0;
+
+        h3 {
+          font-size: 18px;
+        }
+
+        p {
+          font-size: 16px;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  section {
+    h2 {
+      font-size: 26px;
+      margin-left: 200px;
+    }
+  }
+
+  .imageText {
+    flex-direction: row;
+    padding-bottom: 0;
+
+    &__content {
+      flex-direction: column;
+      margin: auto auto auto 185px;
+
+      h3 {
+        font-size: 22px;
+      }
+
+      p {
+        font-size: 12px;
+      }
+    }
+
+    img {
+      width: 50%;
+      max-height: 450px;
+    }
+
+    &--reverse & {
+      &__content {
+        margin-left: 0;
+
+        h3 {
+          font-size: 20px;
+        }
+
+        p {
+          font-size: 10px;
+        }
+      }
+    }
+
+    &--reverse {
+      flex-direction: row-reverse;
+
+      img {
+        width: 22%;
+        max-height: 200px;
+        margin: 30px 20px 30px 12%;
+      }
+    }
+  }
+
+  @keyframes slideDown {
+    0% {
+      padding: 0 0 0 200px;
+      opacity: 0;
+    }
+
+    100% {
+      padding: 10px 0 120px 200px;
+      opacity: 1;
+    }
+  }
+
+  @keyframes slideUp {
+    0% {
+      padding: 10px 0 120px 200px;
+      opacity: 1;
+    }
+
+    100% {
+      padding: 0 0 0 200px;
+      opacity: 0;
+    }
+  }
+
+  .contactUs {
+    padding: 10px 0 120px 200px;
+    margin-top: 10px;
+
+    &--origin {
+      padding: 0;
+    }
+
   }
 }
