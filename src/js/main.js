@@ -18,6 +18,7 @@ const namespace = {
   }
 }
 
+
 let button = document.querySelectorAll('.imageText__button');
 
 for (let i = 0; i < button.length; i++) {
