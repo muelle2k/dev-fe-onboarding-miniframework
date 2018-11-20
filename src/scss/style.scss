@@ -1,4 +1,4 @@
-$section-backgroundcolor: rgb(233, 229, 229);
+$primaryColor: rgb(233, 229, 229);
 
 body {
   font-family: serif;
@@ -19,7 +19,8 @@ section {
 }
 
 .imageText {
-  background: $section-backgroundcolor;
+  background: $primaryColor;
+  display: flex;
 
   &__headline--color {
     color: #e96262;
@@ -33,10 +34,6 @@ section {
     border: none;
     font-size: 10px;
     font-family: serif;
-  }
-
-  &--flex {
-    display: flex;
   }
 
   &__content {
@@ -56,19 +53,8 @@ section {
     width: 50%;
     max-height: 450px;
   }
-}
 
-.secondaryConversion--flex {
-  display: flex;
-  flex-direction: row-reverse;
-
-  img {
-    width: 22%;
-    max-height: 200px;
-    margin: 30px 20px 30px 12%;
-  }
-
-  .imageText {
+  &--reverse & {
     &__content {
       margin-left: 0;
 
@@ -85,6 +71,16 @@ section {
       &--color {
         background: #e96262;
       }
+    }
+  }
+
+  &--reverse {
+    flex-direction: row-reverse;
+
+    img {
+      width: 22%;
+      max-height: 200px;
+      margin: 30px 20px 30px 12%;
     }
   }
 }
@@ -112,7 +108,6 @@ section {
     opacity: 0;
   }
 }
-
 
 .contactUs {
   background: #2f314d;
