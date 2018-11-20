@@ -1,4 +1,4 @@
-$section-backgroundcolor: rgb(233, 229, 229);
+$primaryColor: rgb(233, 229, 229);
 
 body {
   font-family: serif;
@@ -19,7 +19,8 @@ section {
 }
 
 .imageText {
-  background: $section-backgroundcolor;
+  background: $primaryColor;
+  display: flex;
 
   &__headline--color {
     color: #e96262;
@@ -33,10 +34,6 @@ section {
     border: none;
     font-size: 10px;
     font-family: serif;
-  }
-
-  &--flex {
-    display: flex;
   }
 
   &__content {
@@ -57,34 +54,33 @@ section {
     max-height: 450px;
   }
 
-  .secondaryConversion--flex {
-    display: flex;
+  &--reverse & {
+    &__content {
+      margin-left: 0;
+
+      h3 {
+        font-size: 16px;
+      }
+
+      p {
+        font-size: 10px;
+      }
+    }
+
+    &__button {
+      &--color {
+        background: #e96262;
+      }
+    }
+  }
+
+  &--reverse {
     flex-direction: row-reverse;
 
     img {
       width: 22%;
       max-height: 200px;
       margin: 30px 20px 30px 12%;
-    }
-
-    .imageText {
-      &__content {
-        margin-left: 0;
-
-        h3 {
-          font-size: 16px;
-        }
-
-        p {
-          font-size: 10px;
-        }
-      }
-
-      &__button {
-        &--color {
-          background: #e96262;
-        }
-      }
     }
   }
 }
@@ -113,7 +109,6 @@ section {
   }
 }
 
-
 .contactUs {
   background: #2f314d;
   position: relative;
@@ -133,13 +128,7 @@ section {
   &:before {
     content: "";
     border: 10px solid transparent;
-    border-bottom: #2f314d;
-
-    border-top: 10px solid transparent;
-    border-right: 10px solid transparent;
-    border-bottom: 10px solid #2f314d;
-    border-left: 10px solid transparent;
-
+    border-bottom-color: #2f314d;
     position: absolute;
     top: -19px;
   }
