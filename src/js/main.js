@@ -1,5 +1,4 @@
 //ES6
-//PLAIN JS change SCSS file first
 const namespace = {
 
   slideDown(elementToSlideOpen) {
@@ -16,16 +15,60 @@ const namespace = {
 }
 
 let button = document.querySelectorAll('.imageText__button');
+let contactUs = document.querySelectorAll('.contactUs')
 
 for (let i = 0; i < button.length; i++) {
   button[i].addEventListener('click', (event) => {
     console.log(event.target);
 
-    document.querySelectorAll('.contactUs').forEach(element => {
-      if (event.target.closest('section').querySelector('.contactUs') !== element) {
-        namespace.slideUp(element)
-      }
-    });
     namespace.slideDown(event.target.closest('section').querySelector('.contactUs'));
   })
 }
+
+for (let i = 0; i < contactUs.length; i++) {
+  contactUs[i].addEventListener('clickedButton', (e) => {
+    console.log("button has been clicked")
+
+  })
+
+  let event = new CostumEvent('clickedButton', {
+
+  });
+
+  contactUs.dispatchEvent(event);
+}
+
+
+
+for (let i = 0; i < button.length; i++) {
+  button[i].addEventListener('clickedButton', (e) => {
+    console.log("button has been clicked")
+
+  })
+
+  let event = new CostumEvent('clickedButton', {
+
+  });
+
+  button.dispatchEvent(event);
+}
+
+
+
+
+
+
+// let button = document.querySelectorAll('.imageText__button');
+
+// for (let i = 0; i < button.length; i++) {
+//   button[i].addEventListener('click', (event) => {
+//     console.log(event.target);
+
+//     document.querySelectorAll('.contactUs').forEach(element => {
+//       if (event.target.closest('section').querySelector('.contactUs') !== element) {
+//         namespace.slideUp(element)
+//       }
+//     });
+//     namespace.slideDown(event.target.closest('section').querySelector('.contactUs'));
+//   })
+// }
