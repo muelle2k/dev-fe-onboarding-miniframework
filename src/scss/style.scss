@@ -1,6 +1,8 @@
 $primaryColor: rgb(233, 229, 229);
 $secondaryColor:#2f314d;
 $tertiaryColor:#e96262;
+$break-medium:768px;
+$break-large:1024px;
 
 body {
   font-family: serif;
@@ -17,14 +19,33 @@ section {
     font-size: 16px;
     padding-left: 6px;
     border-left: 4px solid $tertiaryColor;
+
+    @media screen and (min-width: $break-medium) {
+      font-size: 22px;
+
+    }
+
+    @media screen and (min-width: $break-large) {
+      font-size: 26px;
+      margin-left: 200px;
+
+    }
+
   }
 }
+
 
 .imageText {
   background: $primaryColor;
   display: flex;
   flex-direction: column-reverse;
   padding-bottom: 10px;
+
+  @media screen and (min-width: $break-large) {
+    flex-direction: row;
+    padding-bottom: 0;
+
+  }
 
   &__headline--color {
     color: $tertiaryColor;
@@ -44,17 +65,44 @@ section {
     flex-direction: column;
     padding-left: 10px;
 
+    @media screen and (min-width: $break-large) {
+      margin: auto auto auto 185px;
+
+    }
+
     h3 {
       font-size: 16px;
+
+      @media screen and (min-width: $break-medium) {
+        font-size: 22px;
+      }
+
+      @media screen and (min-width: $break-large) {
+        font-size: 22px;
+      }
     }
 
     p {
       font-size: 14px;
+
+      @media screen and (min-width: $break-medium) {
+        font-size: 18px;
+
+      }
+
+      @media screen and (min-width: $break-large) {
+        font-size: 22px;
+      }
     }
   }
 
   img {
     width: 100%;
+
+    @media screen and (min-width: $break-large) {
+      width: 50%;
+      max-height: 450px;
+    }
   }
 
   &--reverse & {
@@ -63,16 +111,44 @@ section {
 
       h3 {
         font-size: 16px;
+
+        @media screen and (min-width: $break-medium) {
+          font-size: 18px;
+        }
+
+        @media screen and (min-width: $break-large) {
+          font-size: 20px;
+        }
       }
 
       p {
         font-size: 14px;
+
+        @media screen and (min-width: $break-medium) {
+          font-size: 16px;
+        }
+
+        @media screen and (min-width: $break-large) {
+          font-size: 10px;
+        }
       }
     }
 
     &__button {
       &--color {
         background: $tertiaryColor;
+      }
+    }
+  }
+
+  &--reverse {
+    @media screen and (min-width: $break-large) {
+      flex-direction: row-reverse;
+
+      img {
+        width: 22%;
+        max-height: 200px;
+        margin: 30px 20px 30px 12%;
       }
     }
   }
@@ -108,6 +184,11 @@ section {
   padding: 10px 0 80px 10px;
   margin-top: 5px;
 
+  @media screen and (min-width: $break-large) {
+    padding: 10px 0 120px 200px;
+    margin-top: 10px;
+  }
+
   p {
     color: white;
     background: transparent;
@@ -142,135 +223,5 @@ section {
     visibility: visible;
     animation: slideUp 0.5s linear forwards;
     margin-top: 15px;
-  }
-}
-
-@media screen and (min-width: 768px) {
-
-  section {
-    h2 {
-      font-size: 22px;
-    }
-  }
-
-  .imageText {
-    &__content {
-
-      h3 {
-        font-size: 22px;
-      }
-
-      p {
-        font-size: 18px;
-      }
-    }
-
-    img {
-      width: 100%;
-    }
-
-    &--reverse & {
-      &__content {
-        margin-left: 0;
-
-        h3 {
-          font-size: 18px;
-        }
-
-        p {
-          font-size: 16px;
-        }
-      }
-    }
-  }
-}
-
-@media screen and (min-width: 1024px) {
-  section {
-    h2 {
-      font-size: 26px;
-      margin-left: 200px;
-    }
-  }
-
-  .imageText {
-    flex-direction: row;
-    padding-bottom: 0;
-
-    &__content {
-      flex-direction: column;
-      margin: auto auto auto 185px;
-
-      h3 {
-        font-size: 22px;
-      }
-
-      p {
-        font-size: 12px;
-      }
-    }
-
-    img {
-      width: 50%;
-      max-height: 450px;
-    }
-
-    &--reverse & {
-      &__content {
-        margin-left: 0;
-
-        h3 {
-          font-size: 20px;
-        }
-
-        p {
-          font-size: 10px;
-        }
-      }
-    }
-
-    &--reverse {
-      flex-direction: row-reverse;
-
-      img {
-        width: 22%;
-        max-height: 200px;
-        margin: 30px 20px 30px 12%;
-      }
-    }
-  }
-
-  @keyframes slideDown {
-    0% {
-      padding: 0 0 0 200px;
-      opacity: 0;
-    }
-
-    100% {
-      padding: 10px 0 120px 200px;
-      opacity: 1;
-    }
-  }
-
-  @keyframes slideUp {
-    0% {
-      padding: 10px 0 120px 200px;
-      opacity: 1;
-    }
-
-    100% {
-      padding: 0 0 0 200px;
-      opacity: 0;
-    }
-  }
-
-  .contactUs {
-    padding: 10px 0 120px 200px;
-    margin-top: 10px;
-
-    &--origin {
-      padding: 0;
-    }
-
   }
 }
