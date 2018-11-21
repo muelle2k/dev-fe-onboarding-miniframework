@@ -25,5 +25,4 @@ for (var i = 0; i < button.length; i++) {
     });
     slideDown(event.target.closest("section").getElementsByClassName("contactUs"))
   })
-
 }
