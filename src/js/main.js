@@ -11,7 +11,7 @@ function slideUp(element) {
 
 var button = document.getElementsByClassName("imageText__button");
 var ctaSection = document.querySelectorAll('.contactUs');
-console.log(ctaSection[0])
+console.log(ctaSection)
 
 for (var i = 0; i < button.length; i++) {
   button[i].addEventListener("click", function e(event) {
