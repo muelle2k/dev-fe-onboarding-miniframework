@@ -2,38 +2,30 @@
 //PLAIN JS change SCSS file first
 const namespace = {
 
-  slide(elementToSlideOpen) {
+  slideDown(elementToSlideOpen) {
     console.log(elementToSlideOpen)
-    if (elementToSlideOpen.classList.contains('contactUs--origin', 'contactUs--hidden')) {
+    elementToSlideOpen.classList.remove('contactUs--origin', 'contactUs--hidden');
+    elementToSlideOpen.classList.add('contactUs--visible');
+  },
 
-      elementToSlideOpen.classList.remove('contactUs--origin', 'contactUs--hidden');
-      elementToSlideOpen.classList.add('contactUs--visible');
-
-    } else if (elementToSlideOpen.classList.contains('contactUs--visible')) {
-
-      elementToSlideOpen.classList.remove('contactUs--visible');
-      elementToSlideOpen.classList.add('contactUs--hidden', 'contactUs--origin');
-
-    }
+  slideUp(element) {
+    console.log(element)
+    element.classList.remove('contactUs--visible');
+    element.classList.add('contactUs--hidden', 'contactUs--origin');
   }
 }
 
-
 let button = document.querySelectorAll('.imageText__button');
-
-// for (let i = 0; i < button.length; i++) {
-//   button[i].addEventListener('click', (event) => {
-//     console.log(event.target);
-
-//     namespace.slide(event.target.closest('section').querySelector('.contactUs'))
-//   })
-
 
 for (let i = 0; i < button.length; i++) {
   button[i].addEventListener('click', (event) => {
     console.log(event.target);
-    console.log(button, "buttonarray")
 
-    namespace.slide(event.target.closest('section').querySelector('.contactUs'))
+    document.querySelectorAll('.contactUs').forEach(element => {
+      if (event.target.closest('section').querySelector('.contactUs') !== element) {
+        namespace.slideUp(element)
+      }
+    });
+    namespace.slideDown(event.target.closest('section').querySelector('.contactUs'));
   })
 }
