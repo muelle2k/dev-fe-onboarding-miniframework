@@ -22,18 +22,15 @@ section {
 
     @media screen and (min-width: $break-medium) {
       font-size: 22px;
-
     }
 
     @media screen and (min-width: $break-large) {
       font-size: 26px;
       margin-left: 200px;
-
     }
 
   }
 }
-
 
 .imageText {
   background: $primaryColor;
@@ -44,7 +41,6 @@ section {
   @media screen and (min-width: $break-large) {
     flex-direction: row;
     padding-bottom: 0;
-
   }
 
   &__headline--color {
@@ -67,7 +63,6 @@ section {
 
     @media screen and (min-width: $break-large) {
       margin: auto auto auto 185px;
-
     }
 
     h3 {
@@ -87,7 +82,6 @@ section {
 
       @media screen and (min-width: $break-medium) {
         font-size: 18px;
-
       }
 
       @media screen and (min-width: $break-large) {
@@ -178,16 +172,41 @@ section {
   }
 }
 
+@media screen and (min-width: $break-large) {
+  @keyframes slideDown {
+    0% {
+      padding: 0 0 0 200px;
+    }
+
+    100% {
+      padding: 10px 0 120px 200px;
+
+    }
+  }
+
+  @keyframes slideUp {
+    0% {
+      padding: 10px 0 120px 200px;
+    }
+
+    100% {
+      padding: 0 0 0 200px;
+    }
+  }
+}
+
 .contactUs {
   background: $secondaryColor;
   position: relative;
   padding: 10px 0 80px 10px;
   margin-top: 5px;
 
-  @media screen and (min-width: $break-large) {
-    padding: 10px 0 120px 200px;
-    margin-top: 10px;
-  }
+  // @media screen and (min-width: $break-large) {
+  //   .contactUs {
+  //     padding: 10px 0 120px 200px;
+  //     margin-top: 10px;
+  //   }
+  // }
 
   p {
     color: white;
@@ -211,6 +230,10 @@ section {
     height: 0;
     padding: 0;
     visibility: hidden;
+
+    // @media screen and (min-width: $break-large) {
+    //   padding: 0;
+    // }
   }
 
   &--visible {
@@ -223,5 +246,16 @@ section {
     visibility: visible;
     animation: slideUp 0.5s linear forwards;
     margin-top: 15px;
+  }
+}
+
+@media screen and (min-width: $break-large) {
+  .contactUs {
+    padding: 10px 0 120px 200px;
+    margin-top: 10px;
+
+    &--origin {
+      padding: 0;
+    }
   }
 }
