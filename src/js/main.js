@@ -9,11 +9,13 @@ var contactUs = {
   slideDown: function (elementToSlideOpen) {
     elementToSlideOpen[0].classList.remove(this.closed, this.orgin);
     elementToSlideOpen[0].classList.add(this.opened);
+    console.log("slideDown")
   },
 
   slideUp: function (element) {
     element.classList.remove(this.opened);
     element.classList.add(this.closed);
+    console.log("slideUp")
   },
 
   init: function () {
@@ -24,15 +26,15 @@ var contactUs = {
     for (var i = 0; i < button.length; i++) {
       button[i].addEventListener("click", function e(event) {
         ctaSection.forEach(function (element) {
-          var contactUsUnderClickedButton = event.target.closest('section').getElementsByClassName('.contactUs');
+          var elementUnderClickedButton = event.target.closest('section').getElementsByClassName('.contactUs');
 
-          if (contactUsUnderClickedButton !== element) {
+          if (elementUnderClickedButton !== element) {
 
             self.slideUp(element);
 
           }
         });
-        self.slideDown(event.target.closest("section").getElementsByClassName("contactUs"))
+        self.slideDown(event.target.closest("section").getElementsByClassName("contactUs"));
       })
     }
   }
