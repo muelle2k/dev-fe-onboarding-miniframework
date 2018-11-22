@@ -1,3 +1,4 @@
+console.log("jQuery");
 $('.contactUs').hide();
 $('.imageText__button').click(function (event) {
   $(".contactUs").removeClass("contactUs--origin");
