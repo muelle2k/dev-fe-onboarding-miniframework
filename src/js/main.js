@@ -8,12 +8,13 @@ const contactUs = {
   origin: "contactUs--origin",
 
   slideDown(elementToSlideOpen) {
+    console.log("slideDown");
     elementToSlideOpen.classList.remove(this.origin, this.closed);
     elementToSlideOpen.classList.add(this.opened);
   },
 
   slideUp(element) {
-    console.log(element)
+    console.log("slideUp");
     element.classList.remove(this.opened);
     element.classList.add(this.origin, this.closed);
   },
