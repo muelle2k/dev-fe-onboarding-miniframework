@@ -1,17 +1,19 @@
 //ES6
 const contactUs = {
 
-  slideDown(elementToSlideOpen) {
-    console.log(elementToSlideOpen)
-    elementToSlideOpen.classList.remove('contactUs--origin', 'contactUs--hidden');
-    elementToSlideOpen.classList.add('contactUs--visible');
-  },
+  // button: document.querySelectorAll('.imageText__button'),
+  // slideDown(elementToSlideOpen) {
+  //   console.log(elementToSlideOpen)
+  //   elementToSlideOpen.classList.remove('contactUs--origin', 'contactUs--hidden');
+  //   elementToSlideOpen.classList.add('contactUs--visible');
+  // },
 
-  slideUp(element) {
-    console.log(element)
-    element.classList.remove('contactUs--visible');
-    element.classList.add('contactUs--hidden', 'contactUs--origin');
-  },
+  // slideUp(element) {
+  //   console.log(element)
+  //   element.classList.remove('contactUs--visible');
+  //   element.classList.add('contactUs--hidden', 'contactUs--origin');
+  // },
+
   init() {
     let button = document.querySelectorAll('.imageText__button');
     for (let i = 0; i < button.length; i++) {
@@ -20,19 +22,22 @@ const contactUs = {
 
         document.querySelectorAll('.contactUs').forEach(element => {
           if (event.target.closest('section').querySelector('.contactUs') !== element) {
-            slideUp(element)
+            // slideUp(element)
+            element.classList.remove('contactUs--visible');
+            element.classList.add('contactUs--hidden', 'contactUs--origin');
           }
         });
-        slideDown(event.target.closest('section').querySelector('.contactUs'));
+        // slideDown(event.target.closest('section').querySelector('.contactUs'));
+        event.target.closest('section').querySelector('.contactUs').classList.remove('contactUs--origin', 'contactUs--hidden');
+        event.target.closest('section').querySelector('.contactUs').classList.add('contactUs--visible');
       })
     }
   }
 }
-console.log(contactUs.init());
-//ERROR: Uncaught ReferenceError: slideUp is not defined
-// at document.querySelectorAll.forEach.element (main.js:23)
-// at NodeList.forEach (<anonymous>)
-// at HTMLButtonElement.button.(:1337/anonymous function).addEventListener (http://localhost:1337/js/main.js:21:49)
+
+//console.log(contactUs.init())
+contactUs.init()
+
 
 
 // for (let i = 0; i < contactUs.button.length; i++) {
