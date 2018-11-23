@@ -3,23 +3,56 @@ const contactUs = {
 
   button: document.getElementsByClassName("imageText__button"),
   ctaSection: document.querySelectorAll('.contactUs'),
-  opened: "contactUs--visible",
-  closed: "contactUs--hidden",
-  origin: "contactUs--origin",
+  opened: "contactUs--opened",
+  closed: "contactUs--closed",
 
   slideDown(elementToSlideOpen) {
-    console.log("slideDown");
-    elementToSlideOpen.classList.remove(this.origin, this.closed);
+    elementToSlideOpen.classList.remove(this.closed);
     elementToSlideOpen.classList.add(this.opened);
   },
 
-  slideUp(e) {
-    console.log("slideUp");
-    console.log(e.target);
-    e.target.classList.remove(this.opened);
-    e.target.classList.add(this.origin, this.closed);
+  slideUp(elem) {
+    elem.classList.remove(this.opened);
+    elem.classList.add(this.closed);
   },
-  /*
+
+  init() {
+    let self = this;
+    let button = self.button;
+    let ctaSection = self.ctaSection;
+
+    for (let i = 0; i < button.length; i++) {
+      button[i].addEventListener('click', (el) => {
+
+        let event = new CustomEvent('clickedButton');
+
+        ctaSection[i].dispatchEvent(event);
+      });
+    }
+
+    for (let i = 0; i < ctaSection.length; i++) {
+      ctaSection[i].addEventListener('clickedButton', (e) => {
+        console.log(e.target);
+
+        self.slideDown(e.target);
+
+        ctaSection.forEach(elem => {
+          if (e.target !== elem) { // Das nicht geklickte schon auf ist, wird slideUp
+            //console.log(elem)
+            self.slideUp(elem);
+          }
+        });
+      });
+    }
+
+  }
+}
+contactUs.init();
+
+
+
+
+/*
     init() {
       let self = this;
       let button = self.button;
@@ -28,45 +61,17 @@ const contactUs = {
       for (let i = 0; i < button.length; i++) {
         button[i].addEventListener('click', (event) => {
 
-          var contactUsUnderClickedButton = event.target.closest('section').querySelector('.contactUs');
+          self.slideDown(event.target.closest('section').querySelector('.contactUs'));
+
+          let contactUsUnderClickedButton = event.target.closest('section').querySelector('.contactUs');
 
           ctaSection.forEach(element => {
             if (contactUsUnderClickedButton !== element) {
               self.slideUp(element);
             }
           });
-          self.slideDown(event.target.closest('section').querySelector('.contactUs'));
+          
         })
       }
     }
     */
-
-
-  init() {
-    let self = this;
-    let button = self.button;
-    let ctaSection = self.ctaSection;
-
-    for (let i = 0; i < button.length; i++) {
-      button[i].addEventListener('click', (elem) => {
-
-        self.slideDown(elem.target.closest('section').querySelector('.contactUs'));
-        var event = new CustomEvent('clickedButton');
-
-        ctaSection[i].dispatchEvent(event);
-      });
-    }
-
-    for (let i = 0; i < ctaSection.length; i++) {
-      ctaSection[i].addEventListener('clickedButton', (e) => {
-        var contactUsUnderClickedButton = e.target.closest('section').querySelector('.contactUs');
-        if (contactUsUnderClickedButton !== e.target) { //Why does this not work? if(contactUsUnderClickedButton nicht dass geklickte ist geh hoch)
-          console.log(e)
-          self.slideUp(e);
-        }
-      });
-    }
-
-  }
-}
-contactUs.init();

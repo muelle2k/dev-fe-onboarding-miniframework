@@ -78,35 +78,21 @@ section {
   }
 }
 
-@keyframes slideDown {
-  0% {
-    padding: 10px 0 0 10px;
-    opacity: 0;
-  }
-
-  100% {
-    padding: 10px 0 80px 10px;
-    opacity: 1;
-  }
-}
-
-@keyframes slideUp {
-  0% {
-    padding: 10px 0 80px 10px;
-    opacity: 1;
-  }
-
-  100% {
-    padding: 10px 0 0 10px;
-    opacity: 0;
-  }
-}
-
-.contactUs {
+.contactUs--opened {
+  max-height: 80px;
+  transition: 0.25s ease-out;
   background: $secondaryColor;
   position: relative;
   padding: 10px 0 80px 10px;
   margin-top: 5px;
+}
+
+.contactUs--closed {
+  transition: 0.25s ease-in;
+  max-height: 0;
+}
+
+.contactUs {
 
   p {
     color: white;
@@ -124,24 +110,6 @@ section {
     border-bottom-color: $secondaryColor;
     position: absolute;
     top: -19px;
-  }
-
-  &--origin {
-    height: 0;
-    padding: 0;
-    visibility: hidden;
-  }
-
-  &--visible {
-    visibility: visible;
-    animation: slideDown 0.5s linear;
-    margin-top: 15px;
-  }
-
-  &--hidden {
-    visibility: visible;
-    animation: slideUp 0.5s linear forwards;
-    margin-top: 15px;
   }
 }
 
@@ -240,32 +208,18 @@ section {
     }
   }
 
-  @keyframes slideDown {
-    0% {
-      padding: 0 0 0 200px;
-      opacity: 0;
-    }
-
-    100% {
-      padding: 10px 0 120px 200px;
-      opacity: 1;
-    }
+  .contactUs--opened {
+    max-height: 120px;
+    transition: max-height 1s ease-in;
+    padding: 10px 0 120px 200px;
   }
 
-  @keyframes slideUp {
-    0% {
-      padding: 10px 0 120px 200px;
-      opacity: 1;
-    }
-
-    100% {
-      padding: 0 0 0 200px;
-      opacity: 0;
-    }
+  .contactUs--closed {
+    max-height: 0px;
+    transition: max-height 1s ease-out;
   }
 
   .contactUs {
-    padding: 10px 0 120px 200px;
     margin-top: 10px;
 
     &--origin {
