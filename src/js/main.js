@@ -1,41 +1,57 @@
 console.log("ES5")
 var contactUs = {
-  button: document.getElementsByClassName("imageText__button"),
+  buttons: document.querySelectorAll(".imageText__button"),
   ctaSection: document.querySelectorAll('.contactUs'),
-  opened: "contactUs--visible",
-  closed: "contactUs--hidden",
-  orgin: "contactUs--origin",
+  opened: "contactUs--opened",
+  closed: "contactUs--closed",
 
   slideDown: function (elementToSlideOpen) {
-    elementToSlideOpen[0].classList.remove(this.closed, this.orgin);
-    elementToSlideOpen[0].classList.add(this.opened);
-    console.log("slideDown")
+    elementToSlideOpen.classList.remove(this.closed);
+    elementToSlideOpen.classList.add(this.opened);
   },
 
-  slideUp: function (element) {
-    element.classList.remove(this.opened);
-    element.classList.add(this.closed);
-    console.log("slideUp")
+  slideUp: function (elem) {
+    elem.classList.remove(this.opened);
+    elem.classList.add(this.closed);
   },
 
   init: function () {
     var self = this;
-    var button = self.button;
+    var buttons = self.buttons;
     var ctaSection = self.ctaSection;
+    console.log(ctaSection);
 
-    for (var i = 0; i < button.length; i++) {
-      button[i].addEventListener("click", function e(event) {
-        ctaSection.forEach(function (element) {
-          var elementUnderClickedButton = event.target.closest('section').getElementsByClassName('.contactUs');
 
-          if (elementUnderClickedButton !== element) {
+    for (var i = 0; i < buttons.length; i++) {
+      // var temp = buttons[i];
+      // console.log(temp);
 
-            self.slideUp(element);
+      buttons[i].addEventListener('click', function () {
 
+        var event = new CustomEvent('clickedButton');
+        // console.log(event);
+        //  console.log(ctaSection);
+        console.log(temp)
+        ctaSection[i].dispatchEvent(event);
+      });
+    }
+
+    // buttons.forEach(function (e) {
+    //   console.log(e);
+    // })
+
+    for (var i = 0; i < ctaSection.length; i++) {
+      ctaSection[i].addEventListener('clickedButton', function (e) {
+        console.log(e.target);
+
+        self.slideDown(e.target);
+
+        ctaSection.forEach(function (elem) {
+          if (e.target !== elem) { // Das nicht geklickte schon auf ist, wird slideUp
+            self.slideUp(elem);
           }
         });
-        self.slideDown(event.target.closest("section").getElementsByClassName("contactUs"));
-      })
+      });
     }
   }
 }
