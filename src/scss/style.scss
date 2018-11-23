@@ -142,80 +142,13 @@ section {
       flex-direction: row-reverse;
 
       img {
-        width: 22%;
         margin: 30px 20px 30px 12%;
       }
     }
   }
 }
 
-@keyframes slideDown {
-  0% {
-    padding: 10px 0 0 10px;
-    opacity: 0;
-
-    // @media screen and (min-width: $break-large) {
-    //   padding: 0 0 0 200px;
-    // }
-  }
-
-  100% {
-    padding: 10px 0 80px 10px;
-    opacity: 1;
-
-    // @media screen and (min-width: $break-large) {
-    //   padding: 10px 0 120px 200px;
-    // }
-  }
-}
-
-@keyframes slideUp {
-  0% {
-    padding: 10px 0 80px 10px;
-    opacity: 1;
-  }
-
-  100% {
-    padding: 10px 0 0 10px;
-    opacity: 0;
-  }
-}
-
-@media screen and (min-width: $break-large) {
-  @keyframes slideDown {
-    0% {
-      padding: 0 0 0 200px;
-    }
-
-    100% {
-      padding: 10px 0 120px 200px;
-
-    }
-  }
-
-  @keyframes slideUp {
-    0% {
-      padding: 10px 0 120px 200px;
-    }
-
-    100% {
-      padding: 0 0 0 200px;
-    }
-  }
-}
-
 .contactUs {
-  background: $secondaryColor;
-  position: relative;
-  padding: 10px 0 80px 10px;
-  margin-top: 5px;
-
-  // @media screen and (min-width: $break-large) {
-  //   .contactUs {
-  //     padding: 10px 0 120px 200px;
-  //     margin-top: 10px;
-  //   }
-  // }
 
   p {
     color: white;
@@ -235,36 +168,25 @@ section {
     top: -19px;
   }
 
-  &--origin {
-    height: 0;
-    padding: 0;
-    visibility: hidden;
-
-    // @media screen and (min-width: $break-large) {
-    //   padding: 0;
-    // }
+  &--opened {
+    max-height: 80px;
+    transition: 0.25s ease-out;
+    background: $secondaryColor;
+    position: relative;
+    padding: 10px 0 80px 10px;
+    margin-top: 5px;
   }
 
-  &--visible {
-    visibility: visible;
-    animation: slideDown 0.5s linear;
-    margin-top: 15px;
-  }
-
-  &--hidden {
-    visibility: visible;
-    animation: slideUp 0.5s linear forwards;
-    margin-top: 15px;
+  &--closed {
+    transition: 0.25s ease-in;
+    max-height: 0;
   }
 }
 
 @media screen and (min-width: $break-large) {
   .contactUs {
-    padding: 10px 0 120px 200px;
-    margin-top: 10px;
-
-    &--origin {
-      padding: 0;
+    &--opened {
+      margin-top: 10px;
     }
   }
 }
