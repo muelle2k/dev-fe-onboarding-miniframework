@@ -22,7 +22,7 @@ const contactUs = {
     let ctaSection = self.ctaSection;
 
     for (let i = 0; i < button.length; i++) {
-      button[i].addEventListener('click', (el) => {
+      button[i].addEventListener('click', () => {
 
         let event = new CustomEvent('clickedButton');
 

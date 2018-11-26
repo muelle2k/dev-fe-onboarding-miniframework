@@ -175,6 +175,15 @@ section {
     background: $secondaryColor;
     position: relative;
     padding: 10px 0 80px 10px;
+
+    @media screen and (min-width: $break-medium) {
+      padding: 20px 0 80px 30px;
+    }
+
+    @media screen and (min-width: $break-large) {
+      padding: 20px 0 80px 200px;
+    }
+
     margin-top: 5px;
   }
 
