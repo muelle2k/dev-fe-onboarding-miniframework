@@ -18,20 +18,24 @@ var contactUs = {
   init: function () {
     var self = this;
 
-    for (let i = 0; i < self.buttons.length; i++) { //with var ERROR dispatchEvent is undefined and with let it works
+    for (var i = 0; i < self.buttons.length; i++) { //with var ERROR dispatchEvent is undefined and with let it works
 
+      try {
+        throw i
+      } catch (ii) {
+        self.buttons[i].addEventListener('click', function () {
 
-      self.buttons[i].addEventListener('click', function () {
-        var myEvent = new CustomEvent('clickedButton');
+          var myEvent = new CustomEvent('clickedButton');
 
-        self.ctaSection[i].dispatchEvent(myEvent);
+          self.ctaSection[ii].dispatchEvent(myEvent);
 
-      });
+        });
+
+      }
     }
 
     for (var i = 0; i < self.ctaSection.length; i++) {
       self.ctaSection[i].addEventListener('clickedButton', function (e) {
-        console.log("Working");
 
         self.slideDown(e.target);
 
