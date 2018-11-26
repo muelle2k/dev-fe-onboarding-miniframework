@@ -1,12 +1,46 @@
-console.log('jQuery');
-$('.contactUs').hide();
+console.log("ES5")
+var contactUs = {
+  buttons: document.querySelectorAll(".imageText__button"),
+  ctaSection: document.querySelectorAll('.contactUs'),
+  opened: "contactUs--opened",
+  closed: "contactUs--closed",
 
-$('.imageText__button ').click(function (event) {
-  console.log(event.target);
+  slideDown: function (elementToSlideOpen) {
+    elementToSlideOpen.classList.remove(this.closed);
+    elementToSlideOpen.classList.add(this.opened);
+  },
 
-  $('.contactUs').removeClass('contactUs--closed');
-  console.log($('.contactUs ').removeClass('contactUs--closed'));
+  slideUp: function (elem) {
+    elem.classList.remove(this.opened);
+    elem.classList.add(this.closed);
+  },
 
-  $(event.target).closest('section').find('.contactUs').addClass('contactUs--opened');
-  $('.contactUs').not($(event.target).closest('section').find('.contactUs')).removeClass('contactUs--opened').addClass('contactUs--closed');
-});
+  init: function () {
+    var self = this;
+
+    for (var i = 0; i < self.buttons.length; i++) { //with var ERROR dispatchEvent is undefined and with let it works
+
+      self.buttons[i].addEventListener('click', function () {
+        var myEvent = new CustomEvent('clickedButton');
+        console.log(self.ctaSection[i])
+        self.ctaSection[i].dispatchEvent(myEvent);
+
+      });
+    }
+
+    for (var i = 0; i < self.ctaSection.length; i++) {
+      self.ctaSection[i].addEventListener('clickedButton', function (e) {
+        console.log("Working");
+
+        self.slideDown(e.target);
+
+        self.ctaSection.forEach(function (elem) {
+          if (e.target !== elem) { // Das nicht geklickte schon auf ist, wird slideUp
+            self.slideUp(elem);
+          }
+        });
+      });
+    }
+  }
+}
+contactUs.init()
