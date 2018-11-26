@@ -17,36 +17,40 @@ var contactUs = {
 
   init: function () {
     var self = this;
-    var buttons = self.buttons;
-    var ctaSection = self.ctaSection;
-    console.log(ctaSection);
 
+    for (let i = 0; i < self.buttons.length; i++) { //with var ERROR dispatchEvent is undefined and with let it works
 
-    for (var i = 0; i < buttons.length; i++) {
-      // var temp = buttons[i];
-      // console.log(temp);
+      self.buttons[i].addEventListener('click', function () {
+        var myEvent = new CustomEvent('clickedButton');
+        // console.log(self.ctaSection[i]);
+        // console.log(ctaSection)
 
-      buttons[i].addEventListener('click', function () {
+        // console.log(event.target);
 
-        var event = new CustomEvent('clickedButton');
-        // console.log(event);
-        //  console.log(ctaSection);
-        console.log(temp)
-        ctaSection[i].dispatchEvent(event);
+        self.ctaSection[i].dispatchEvent(myEvent);
+
       });
     }
-
     // buttons.forEach(function (e) {
-    //   console.log(e);
+    //   e.addEventListener('click', function () {
+    //     var event = new CustomEvent('clickedButton');
+
+    //     console.log(ctaSection)
+    //     ctaSection.forEach(function () {
+    //       ctaSection[i].dispatchEvent(event);
+    //     })
+    //   });
+
     // })
 
-    for (var i = 0; i < ctaSection.length; i++) {
-      ctaSection[i].addEventListener('clickedButton', function (e) {
-        console.log(e.target);
+    for (var i = 0; i < self.ctaSection.length; i++) {
+      self.ctaSection[i].addEventListener('clickedButton', function (e) {
+        console.log("Working");
+        // console.log(e);
 
         self.slideDown(e.target);
 
-        ctaSection.forEach(function (elem) {
+        self.ctaSection.forEach(function (elem) {
           if (e.target !== elem) { // Das nicht geklickte schon auf ist, wird slideUp
             self.slideUp(elem);
           }
