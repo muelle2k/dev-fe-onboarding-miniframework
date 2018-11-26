@@ -18,29 +18,22 @@ var contactUs = {
   init: function () {
     var self = this;
 
-    for (var i = 0; i < self.buttons.length; i++) { //with var ERROR dispatchEvent is undefined and with let it works
-
+    for (var i = 0; i < self.buttons.length; i++) {
       try {
         throw i
       } catch (ii) {
         self.buttons[i].addEventListener('click', function () {
-
           var myEvent = new CustomEvent('clickedButton');
-
           self.ctaSection[ii].dispatchEvent(myEvent);
-
         });
-
       }
     }
 
     for (var i = 0; i < self.ctaSection.length; i++) {
       self.ctaSection[i].addEventListener('clickedButton', function (e) {
-
         self.slideDown(e.target);
-
         self.ctaSection.forEach(function (elem) {
-          if (e.target !== elem) { // Das nicht geklickte schon auf ist, wird slideUp
+          if (e.target !== elem) {
             self.slideUp(elem);
           }
         });
