@@ -6,6 +6,10 @@ const contactUs = {
   opened: "contactUs--opened",
   closed: "contactUs--closed",
 
+  init() {
+    this.toggleBox();
+  },
+
   slideDown(elementToSlideOpen) {
     elementToSlideOpen.classList.remove(this.closed);
     elementToSlideOpen.classList.add(this.opened);
@@ -16,7 +20,7 @@ const contactUs = {
     elem.classList.add(this.closed);
   },
 
-  init() {
+  toggleBox() {
     let self = this;
     let button = self.button;
     let ctaSection = self.ctaSection;
@@ -44,7 +48,6 @@ const contactUs = {
         });
       });
     }
-
   }
 }
 contactUs.init();
