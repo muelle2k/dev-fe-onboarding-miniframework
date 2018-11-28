@@ -12,7 +12,6 @@ $('.imageText__button ').click(function (event) {
 });
 
 $('.contactUs').on('clickedButton', function () {
-  $('.contactUs').removeClass('contactUs--closed');
   $(event.target).closest('section').find('.contactUs').addClass('contactUs--opened');
   $('.contactUs').not($(event.target).closest('section').find('.contactUs')).removeClass('contactUs--opened').addClass('contactUs--closed');
 });
