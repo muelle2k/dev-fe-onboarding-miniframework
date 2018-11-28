@@ -1,4 +1,4 @@
-$primaryColor: rgb(233, 229, 229);
+$primaryColor: #E9E5E5;
 $secondaryColor:#2f314d;
 $tertiaryColor:#e96262;
 $break-medium:768px;
@@ -182,6 +182,7 @@ section {
 
     @media screen and (min-width: $break-large) {
       padding: 20px 0 80px 200px;
+      margin-top: 10px;
     }
 
     margin-top: 5px;
@@ -190,13 +191,5 @@ section {
   &--closed {
     transition: 0.25s ease-in;
     max-height: 0;
-  }
-}
-
-@media screen and (min-width: $break-large) {
-  .contactUs {
-    &--opened {
-      margin-top: 10px;
-    }
   }
 }
