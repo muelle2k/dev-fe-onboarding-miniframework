@@ -21,27 +21,25 @@ const contactUs = {
   },
 
   toggleBox() {
-    let self = this;
 
-    for (let i = 0; i < self.button.length; i++) {
-      self.button[i].addEventListener('click', () => {
+    for (let i = 0; i < this.button.length; i++) {
+      this.button[i].addEventListener('click', () => {
 
         let event = new CustomEvent('clickedButton');
 
-        self.ctaSection[i].dispatchEvent(event);
+        this.ctaSection[i].dispatchEvent(event);
       });
     }
 
-    for (let i = 0; i < self.ctaSection.length; i++) {
-      self.ctaSection[i].addEventListener('clickedButton', (e) => {
+    for (let i = 0; i < this.ctaSection.length; i++) {
+      this.ctaSection[i].addEventListener('clickedButton', (e) => {
         console.log(e.target);
 
-        self.slideDown(e.target);
+        this.slideDown(e.target);
 
-        self.ctaSection.forEach(elem => {
-          if (e.target !== elem) { // Das nicht geklickte schon auf ist, wird slideUp
-            //console.log(elem)
-            self.slideUp(elem);
+        this.ctaSection.forEach(elem => {
+          if (e.target !== elem) {
+            this.slideUp(elem);
           }
         });
       });
@@ -49,30 +47,3 @@ const contactUs = {
   }
 }
 contactUs.init();
-
-
-
-
-/*
-    init() {
-      let self = this;
-      let button = self.button;
-      let ctaSection = self.ctaSection;
-
-      for (let i = 0; i < button.length; i++) {
-        button[i].addEventListener('click', (event) => {
-
-          self.slideDown(event.target.closest('section').querySelector('.contactUs'));
-
-          let contactUsUnderClickedButton = event.target.closest('section').querySelector('.contactUs');
-
-          ctaSection.forEach(element => {
-            if (contactUsUnderClickedButton !== element) {
-              self.slideUp(element);
-            }
-          });
-          
-        })
-      }
-    }
-    */
