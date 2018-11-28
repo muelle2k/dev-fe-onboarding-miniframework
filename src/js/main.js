@@ -23,14 +23,10 @@ var contactUs = {
     var self = this;
 
     for (var i = 0; i < self.buttons.length; i++) {
-      try {
-        throw i
-      } catch (ii) {
-        self.buttons[i].addEventListener('click', function () {
-          var myEvent = new CustomEvent('clickedButton');
-          self.ctaSection[ii].dispatchEvent(myEvent);
-        });
-      }
+      self.buttons[i].addEventListener('click', function (e) {
+        var myEvent = new CustomEvent('clickedButton');
+        e.target.closest('section').querySelector('.contactUs').dispatchEvent(myEvent);
+      });
     }
 
     for (var i = 0; i < self.ctaSection.length; i++) {
