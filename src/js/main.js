@@ -5,6 +5,10 @@ var contactUs = {
   opened: "contactUs--opened",
   closed: "contactUs--closed",
 
+  init: function () {
+    this.toggleBox();
+  },
+
   slideDown: function (elementToSlideOpen) {
     elementToSlideOpen.classList.remove(this.closed);
     elementToSlideOpen.classList.add(this.opened);
@@ -15,7 +19,7 @@ var contactUs = {
     elem.classList.add(this.closed);
   },
 
-  init: function () {
+  toggleBox: function () {
     var self = this;
 
     for (var i = 0; i < self.buttons.length; i++) {
