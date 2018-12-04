@@ -1,14 +1,202 @@
+$primaryColor: rgb(233, 229, 229);
+$secondaryColor:#2f314d;
+$tertiaryColor:#e96262;
+$break-medium:768px;
+$break-large:1024px;
+
 body {
-  background-color: pink;
-  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-  height: 2000px;
+  font-family: serif;
+  margin: 0;
 }
 
-.content {
-  position: absolute;
-  top: 600px;
-  background-color: #fefefe;
-  padding: 50px;
-  margin: 20px;
-  box-shadow: inset 1px 1px 11px 0px black;
+h1 {
+  font-size: 30px;
+  text-align: center;
+}
+
+section {
+  h2 {
+    margin-left: 10px;
+    font-size: 16px;
+    padding-left: 6px;
+    border-left: 4px solid $tertiaryColor;
+
+    @media screen and (min-width: $break-medium) {
+      font-size: 22px;
+    }
+
+    @media screen and (min-width: $break-large) {
+      font-size: 26px;
+      margin-left: 200px;
+    }
+
+  }
+}
+
+.imageText {
+  background: $primaryColor;
+  display: flex;
+  flex-direction: column-reverse;
+  padding-bottom: 10px;
+
+  @media screen and (min-width: $break-large) {
+    flex-direction: row;
+    padding-bottom: 0;
+  }
+
+  &__headline--color {
+    color: $tertiaryColor;
+  }
+
+  &__button {
+    color: white;
+    background: black;
+    padding: 8px 12px;
+    margin: auto auto auto 0;
+    border: none;
+    font-size: 10px;
+    font-family: serif;
+  }
+
+  &__content {
+    flex-direction: column;
+    padding: 20px 30px 30px 30px;
+
+    @media screen and (min-width: $break-large) {
+      margin: auto auto auto 185px;
+      padding-right: 30px;
+    }
+
+    h3 {
+      font-size: 16px;
+
+      @media screen and (min-width: $break-medium) {
+        font-size: 22px;
+      }
+
+      @media screen and (min-width: $break-large) {
+        font-size: 22px;
+      }
+    }
+
+    p {
+      font-size: 14px;
+
+      @media screen and (min-width: $break-medium) {
+        font-size: 18px;
+      }
+
+      @media screen and (min-width: $break-large) {
+        font-size: 22px;
+      }
+    }
+  }
+
+  img {
+    max-width: 100%;
+
+    @media screen and (min-width: $break-large) {
+      width: 50%;
+      align-self: center;
+    }
+  }
+
+  &--reverse & {
+    &__content {
+      margin-left: 0;
+
+      h3 {
+        font-size: 16px;
+
+        @media screen and (min-width: $break-medium) {
+          font-size: 18px;
+        }
+
+        @media screen and (min-width: $break-large) {
+          font-size: 20px;
+        }
+      }
+
+      p {
+        font-size: 14px;
+
+        @media screen and (min-width: $break-medium) {
+          font-size: 16px;
+        }
+
+        @media screen and (min-width: $break-large) {
+          font-size: 18px;
+        }
+      }
+    }
+
+    &__button {
+      &--color {
+        background: $tertiaryColor;
+      }
+    }
+  }
+
+  &--reverse {
+    @media screen and (min-width: $break-large) {
+      flex-direction: row-reverse;
+
+      img {
+        width: 25%;
+        margin: 30px 20px 30px 12%;
+      }
+    }
+  }
+}
+
+.contactUs {
+
+  p {
+    color: white;
+    background: transparent;
+    border: none;
+    font-family: sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    margin-top: 0;
+  }
+
+  &:before {
+    content: "";
+    border: 10px solid transparent;
+    border-bottom-color: $secondaryColor;
+    position: absolute;
+    top: -19px;
+  }
+
+  &--opened {
+    max-height: 80px;
+    transition: 0.25s ease-out;
+    background: $secondaryColor;
+    position: relative;
+    padding: 10px 0 80px 10px;
+
+    @media screen and (min-width: $break-medium) {
+      padding: 20px 0 80px 30px;
+    }
+
+    @media screen and (min-width: $break-large) {
+      padding: 20px 0 80px 200px;
+    }
+
+    margin-top: 5px;
+  }
+
+  &--closed {
+    transition: 0.25s ease-in;
+    max-height: 0;
+  }
+}
+
+@media screen and (min-width: $break-large) {
+  .contactUs {
+    &--opened {
+      margin-top: 10px;
+    }
+  }
 }
